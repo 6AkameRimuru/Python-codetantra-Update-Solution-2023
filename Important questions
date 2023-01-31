@@ -1,1 +1,506 @@
 Hello 
+#44 WAP to compute the HCF of two numbers. 
+def compute_hcf(x, y): 
+  
+    # choose the smaller number 
+    if x > y: 
+        smaller = y 
+    else: 
+        smaller = x 
+    for i in range(1,smaller + 1): 
+        if((x % i == 0) and (y % i == 0)): 
+            hcf = i 
+              
+    return hcf 
+  
+num1 = int(input("Enter first number: ")) 
+num2 = int(input("Enter second number: ")) 
+  
+print("The H.C.F. of", num1,"and", num2,"is", compute_hcf(num1, num2))
+
+# 45.  WAP to compute the LCM of two numbers. 
+def lcm(x, y): 
+  
+    # choose the greater number 
+    if x > y: 
+        greater = x 
+    else: 
+        greater = y 
+  
+    while(True): 
+        if((greater % x == 0) and (greater % y == 0)): 
+            lcm = greater 
+            break
+        greater += 1
+  
+    return lcm 
+  
+# change the values of num1 and num2 for a different result 
+num1 = int(input("num1: "))
+num2 = int(input("num2: "))
+  
+# uncomment the following lines to take input from the user 
+#num1 = int(input("Enter first number: ")) 
+#num2 = int(input("Enter second number: ")) 
+  
+print("The L.C.M. of", num1,"and", num2,"is", lcm(num1, num2))
+
+
+#46.  WAP to convert the decimal number to the binary number. 
+Given decimal number is: 8
+
+
+
+decimal = 8
+binary = bin(decimal)
+print("Binary value of",decimal,"is",binary[2:])
+
+#47.  WAP to convert the binary number to the decimal number. 
+binary = input("Enter a binary number: ")
+
+# Function to convert binary to decimal
+def binaryToDecimal(binary):
+    decimal, i = 0, 0
+    while(binary != 0):
+        dec = binary % 10
+        decimal = decimal + dec * pow(2, i)
+        binary = binary//10
+        i += 1
+    return decimal
+
+# Output
+print(binaryToDecimal(int(binary)))
+
+#4848.  WAP to convert the decimal number to the octal number. 
+decimal_number = int(input("Enter a decimal number: "))
+
+print("Octal number is: ", oct(decimal_number))
+
+
+#49.  WAP to convert the octal number to decimal number. 
+def octalToDecimal(octal):
+    decimal = 0
+    power = 0
+    while octal != 0:
+        rem = octal % 10
+        decimal += rem * (8 ** power)
+        octal //= 10
+        power += 1
+    return decimal
+
+# Main code
+octal = int(input("Enter octal number: "))
+
+# Calling function
+decimal = octalToDecimal(octal)
+
+# Print result
+print("Decimal equivalent is:", decimal)
+
+
+#50.  WAP to display the Floyd’s triangle. 
+def floydTriangle(n): 
+	num = 1
+	for i in range(1, n+1): 
+		for j in range(1, i+1): 
+			print(num, end=" ") 
+			num = num + 1
+		print("\r") 
+
+n = 6
+floydTriangle(n)
+
+#51.  WAP to display the following pattern. 
+for i in range(1,6):
+    for j in range(1,i+1):
+        print(chr(64+j),end=" ")
+    print()
+
+#52 WAP to display the following pattern. 
+n=5
+for i in range(1,n+1):
+    for k in range (n,i,-1):
+        print(" ",end=" ")
+    for j in range(1,i+1):
+        print("*",end=" ")
+    for l in range(i-1,0,-1):
+        print("*",end=" ")
+    print()
+
+#53.  WAP to implement the user defined function to add two numbers. 
+def sum(a,b):
+    return(a+b)
+print("Sum using def function: ",sum(3,4))
+
+# WAP to check whether the two numbers are equal or not.
+def equal(a,b):
+    if a==b:
+        print("Both equal")
+    else:
+        print("Unequal")
+a=int(input("num1: "))
+b=int(input("num2: "))
+equal(a,b)
+
+#55.  WAP to find the largest of three numbers using user defined function.
+def largest(a,b,c):
+    if a>=b and a>=c:
+        print("{} is greater.".format(a))
+    elif b>=a and b>=c:
+        print("{} is greater.".format(b))
+    else:
+        print("{} is greater.".format(c))
+
+a=int(input("a: "))
+b=int(input("b: "))
+c=int(input("c: "))
+largest(a,b,c)
+
+#56.  WAP to check whether the given year is a leap year or not using user defined function
+def leap_year():
+    
+    if n%4==0 and n%100!=0:
+        print("leap year")
+    elif n%400==0:
+        print("leap year")
+    else:
+        print("not leap year")
+n=int(input("year: "))
+leap_year(n)
+
+#57.  WAP to swap the values of two variable that are defined as global variables. 
+a=2
+b=3
+def swap(x,y):
+    x,y=y,x
+    print("a: ",x,"b: ",y)  
+swap(a,b)
+
+#58.  WAP to compute the factorial of the given number using user defined function. 
+
+def factorial():
+    num=int(input("num: "))
+    factorial=1
+    if num < 0:
+        print("Sorry, factorial does not exist for negative numbers")
+    elif num == 0:
+        print("The factorial of 0 is 1")
+    else:
+        for i in range(1,num + 1):
+            factorial = factorial*i
+    print("The factorial of",num,"is",factorial)
+
+factorial()
+
+#59.  WAP to compute the P (n, r) using user defined function. 
+# Program to find P (n, r) using user-defined function
+
+def p_n_r(n, r): 
+  return (math.factorial(n) // (math.factorial(r) * math.factorial(n - r))) 
+
+# Driver Code 
+import math 
+
+n = 5
+r = 2
+print("P (", n, ",", r, ") = ", p_n_r(n, r))
+
+# 60.  WAP to compute the C (n, r) using the user defined function
+def nCr(n,r): 
+	return (fact(n) / (fact(r) * fact(n - r))) 
+
+def fact(n): 
+	res = 1
+	for i in range(2, n+1): 
+		res = res * i 
+	return res 
+
+# Driver Code 
+n = 5; r = 2
+print("Value of C(",n,",",r,") is ",nCr(n,r))
+
+#61.  WAP to compute the HCF and LCM of two numbers using user defined function.  
+def compute_hcf(x, y): 
+    if x > y: 
+        smaller = y 
+    else: 
+        smaller = x 
+    for i in range(1,smaller + 1): 
+        if((x % i == 0) and (y % i == 0)): 
+            hcf = i 
+    return hcf 
+    print("The H.C.F. of", num1,"and", num2,"is", compute_hcf(num1, num2))
+def lcm(x, y):
+    if x > y: 
+        greater = x 
+    else: 
+        greater = y 
+    while(True): 
+        if((greater % x == 0) and (greater % y == 0)): 
+            lcm = greater 
+            break
+        greater += 1
+    return lcm 
+    print("The L.C.M. of", num1,"and", num2,"is", lcm(num1, num2))
+num1 = int(input("Enter first number: ")) 
+num2 = int(input("Enter second number: ")) 
+  
+
+#62.  WAP compute the sum of the series using user defined function. 
+
+def sum_series(n): 
+	sum = 0
+	for i in range(1, n+1): 
+		sum = sum + (1 / (i*i)) 
+	return sum
+
+n = int(input("Enter the number of terms: "))
+print("Sum of the series is", sum_series(n))
+
+#63.  WAP to display the pattern using user defined function. 
+def floydTriangle(n): 
+	num = 1
+	for i in range(1, n+1): 
+		for j in range(1, i+1): 
+			print(num, end=" ") 
+			num = num + 1
+		print("\r") 
+
+n = 6
+floydTriangle(n)
+
+#6464.  WAP to display the Fibonacci series using user defined function. 
+def Fibonacci(n): 
+    if n<0: 
+        print("Incorrect input") 
+    elif n==1: 
+        return 0
+    elif n==2: 
+        return 1
+    else: 
+        return Fibonacci(n-1)+Fibonacci(n-2) 
+  
+# Driver Program 
+  
+print("Fibonacci Series:") 
+for i in range(1,11): 
+    print(Fibonacci(i))
+
+#65.  WAP to compute the sum of Fibonacci series up to nth term using user defined function. 
+def Fibonacci_sum(n): 
+ 
+    if n <= 0: 
+        print("Please enter a positive integer") 
+   
+    elif n == 1: 
+        return 0
+ 
+    elif n == 2: 
+        return 1
+    else: 
+        n1 = 0
+        n2 = 1
+        sum = 1
+       
+        for i in range(2,n): 
+            n3 = n1 + n2 
+           
+            # update values 
+            n1 = n2 
+            n2 = n3 
+            sum = sum + n3 
+   
+        return sum 
+  
+# Driver Program 
+n = int(input("Enter the number of terms:"))
+
+print(Fibonacci_sum(n))
+
+#66  WAP to compute the sum of the digits using user defined function. 
+def sum():
+    num=int(input("Enter a number:"))
+    s=0
+    while num>0:
+        d=num%10
+        s=s+d
+        num=num//10
+    print("The sum of the digits is:",s)
+sum()
+
+#67.  WAP to check whether the given number is a prime number or not using user defined function.
+def prime():
+    num = int(input("num: "))
+    if num > 1:
+        for i in range(2, int(num/2)+1):
+            if (num % i) == 0:
+                print(num, "is not a prime number")
+                break
+        else:
+            print(num, "is a prime number")
+    else:
+        print(num, "is not a prime number")
+prime()
+
+#68.  WAP to compute the exponential of number w.r.t. another number. 
+def exponential():
+    return(a**b)
+a = int(input("Enter the base number: "))
+b = int(input("Enter the exponent number: "))
+print("The exponential of number w.r.t. another number is:", exponential())
+
+#69.  WAP to compute the sum of the first n natural number using recursion
+def rec_sum(n):
+   if n <= 1:
+       return n
+   else:
+       return n + rec_sum(n-1)
+n = int(input('Enter a number: '))
+sum = rec_sum(n)
+print("Sum of numbers from 1 to", n, "is: ", sum)
+
+#70  WAP to compute the factorial of the given number using recursion. 
+def factorial(n): 
+    if (n == 0): 
+        return 1
+    return n * factorial(n - 1) 
+  
+# Driver Code 
+num = 5
+print("Factorial of", num, "is", factorial(num))
+
+#71 71.  WAP to compute the exponential of number w.r.t. another number using recursion
+def exponential(num, power): 
+    if power == 0:
+        return 1
+    return num * exponential(num, power - 1) 
+  
+# Driver Code 
+num = int(input("Enter the base number: "))
+power = int(input("Enter the exponential power: "))
+
+print("The result of exponential of",num,"w.r.t",power,"is:", exponential(num, power))
+
+#72 72.  WAP to display the Fibonacci series using recursion. 
+def printFibonacciSeries(n):
+    if n<=0: 
+        print("Incorrect input") 
+    elif n==1: 
+        return 0
+    elif n==2: 
+        return 1
+    else: 
+        return printFibonacciSeries(n-1)+printFibonacciSeries(n-2) 
+
+# Driver Program 
+nterms = 10
+
+# check if the number of terms is valid 
+if nterms <= 0: 
+    print("Plese enter a positive integer") 
+else: 
+    print("Fibonacci Series:") 
+    for i in range(1,nterms+1): 
+        print(printFibonacciSeries(i))
+
+#73.  WAP to compute the sum of digits of the given number using recursion
+def sumOfDigits(number):
+    if number == 0:
+        return 0
+    else:
+        return (number % 10 + sumOfDigits(number // 10))
+
+n = int(input("Enter a number: "))
+print("Sum of digits of the number is:",sumOfDigits(n))
+
+#74 74.  WAP to compute the reverse of the given number using recursion. 
+def reverse(num):
+    if len(num) == 1:
+        return num
+    else:
+        return num[-1] + reverse(num[:-1])
+ 
+# Driver code
+num = "12345"
+print(reverse(num))
+
+#7575.  WAP to multiply two numbers using lambda function.
+def cube(x): 
+  return x*x*x 
+  
+list1 = [1, 2, 3, 4, 5] 
+'''for user input
+list1 = input("num without spacing: ")
+print("list with num as string:",[*list])
+also use [*list1] in result'''  
+result = map(cube, list1) 
+
+print(list(result))
+
+#76.  WAP to compute the cube of all numbers in the given list using map() function
+from functools import reduce
+
+list = [10, 20, 30, 40, 50]
+'''for input form user 
+a=int(input("num without spacing:"))
+list =*a'''
+
+largest = reduce(lambda a,b : a if (a > b) else b,list) 
+
+print("Largest element in the list is:", largest)
+
+#77.  WAP to create a new list consisting of odd numbers from the given list of numbers using filter() function
+my_list = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+'''for user input
+list1 = input("num without spacing: ")
+print("list with num as string:",[*list])
+also use [*list1] in result'''
+odd_numbers = list(filter(lambda x: x % 2 != 0, my_list))
+
+print(odd_numbers)
+
+#78.  WAP to compute the sum of all the elements of the list using reduce() function
+List = [21, 15, 7, 78, 34] 
+sum = reduce((lambda x, y: x + y), List) 
+print("Sum of the list elements :",sum)
+
+#79.  WAP to find the largest element in the given list using reduce() function.
+Input = input("str: ")
+print("list with num as string:",[*Input])
+Output = list(map(int, [*Input])) 
+
+print(Output) 
+
+#80.  WAP to find min, max and average of elements of a list having numeric data 
+#Declaring a list of numbers 
+list1 = [2, 4, 5, 7, 8, 11, 13] 
+
+
+'''for user input
+list1 = input("num without spacing: ")
+print("list with num as string:",[*list])
+also use [*list1] in result'''
+
+#initializing min and max to the 1st element of list 
+min = list1[0] 
+max = list1[0] 
+
+#Looping through the list to determine min and max 
+for i in list1: 
+	if i < min: 
+		min = i 
+	if i > max: 
+		max = i 
+
+#Calculating average of elements in the list 
+sum = 0
+for i in list1: 
+	sum += i 
+
+average = sum/len(list1) 
+
+#Printing result 
+print("Minimum:", min) 
+print("Maximum:", max) 
+print("Average:", average)
+
